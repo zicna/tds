@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 2021_03_28_144141) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
-    t.string "password"
+    t.integer "truck"
+    t.string "trailer"
     t.integer "team_id"
   end
 
