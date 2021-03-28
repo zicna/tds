@@ -19,31 +19,31 @@ dispatchers = [
 ]
 
 dispatchers.each do |disp|
-    Dispatch.create(disp)
+    Dispatcher.create(disp)
 end
 
 drivers = [
-    {name: "Driver01",truck: 001 , trailer: "GD11" ,team_id: 1  },
-    {name: "Driver02",truck: 002 , trailer: "GD12" ,team_id: 1  },
-    {name: "Driver03",truck: 003 , trailer: "GD13" ,team_id: 1  },
-    {name: "Driver04",truck: 004 , trailer: "GD14" ,team_id: 1  },
-    {name: "Driver05",truck: 005 , trailer: "GD15" ,team_id: 1  },
-    {name: "Driver06",truck: 006 , trailer: "GD16" ,team_id: 1  },
-    {name: "Driver07",truck: 007 , trailer: "GD17" ,team_id: 1  },
-    {name: "Driver08",truck: 008 , trailer: "GD18" ,team_id: 1  },
-    {name: "Driver09",truck: 009 , trailer: "GD19" ,team_id: 1  },
-    {name: "Driver10",truck: 010 , trailer: "GD20" ,team_id: 1  },
-    {name: "Driver11",truck: 011 , trailer: "GD21" ,team_id: 1  },
-    {name: "Driver12",truck: 012 , trailer: "GD22" ,team_id: 1  },
-    {name: "Driver13",truck: 013 , trailer: "GD23" ,team_id: 2  },
-    {name: "Driver14",truck: 014 , trailer: "GD24" ,team_id: 2  },
-    {name: "Driver15",truck: 015 , trailer: "GD25" ,team_id: 2  },
-    {name: "Driver16",truck: 016 , trailer: "GD26" ,team_id: 2  },
-    {name: "Driver17",truck: 017 , trailer: "GD27" ,team_id: 2  },
-    {name: "Driver18",truck: 018 , trailer: "GD28" ,team_id: 2  },
-    {name: "Driver19",truck: 019 , trailer: "GD29" ,team_id: 2  },
-    {name: "Driver20",truck: 020 , trailer: "GD30" ,team_id: 2  },
-    {name: "Driver21",truck: 021 , trailer: "GD31" ,team_id: 2  }
+    {name: "Driver01",truck: 1 , trailer: "GD11" ,team_id: 1  },
+    {name: "Driver02",truck: 2 , trailer: "GD12" ,team_id: 1  },
+    {name: "Driver03",truck: 3 , trailer: "GD13" ,team_id: 1  },
+    {name: "Driver04",truck: 4 , trailer: "GD14" ,team_id: 1  },
+    {name: "Driver05",truck: 5 , trailer: "GD15" ,team_id: 1  },
+    {name: "Driver06",truck: 6 , trailer: "GD16" ,team_id: 1  },
+    {name: "Driver07",truck: 7 , trailer: "GD17" ,team_id: 1  },
+    {name: "Driver08",truck: 8 , trailer: "GD18" ,team_id: 1  },
+    {name: "Driver09",truck: 9 , trailer: "GD19" ,team_id: 1  },
+    {name: "Driver10",truck: 10 , trailer: "GD20" ,team_id: 1  },
+    {name: "Driver11",truck: 11 , trailer: "GD21" ,team_id: 1  },
+    {name: "Driver12",truck: 12 , trailer: "GD22" ,team_id: 1  },
+    {name: "Driver13",truck: 13 , trailer: "GD23" ,team_id: 2  },
+    {name: "Driver14",truck: 14 , trailer: "GD24" ,team_id: 2  },
+    {name: "Driver15",truck: 15 , trailer: "GD25" ,team_id: 2  },
+    {name: "Driver16",truck: 16 , trailer: "GD26" ,team_id: 2  },
+    {name: "Driver17",truck: 17 , trailer: "GD27" ,team_id: 2  },
+    {name: "Driver18",truck: 18 , trailer: "GD28" ,team_id: 2  },
+    {name: "Driver19",truck: 19 , trailer: "GD29" ,team_id: 2  },
+    {name: "Driver20",truck: 20 , trailer: "GD30" ,team_id: 2  },
+    {name: "Driver21",truck: 21 , trailer: "GD31" ,team_id: 2  }
 ]
 
 drivers.each do |driver|
