@@ -1,0 +1,21 @@
+<h1>This is a signup page</h1>
+<form action="/dispatchers" method="post">
+    <label for="name">Name: </label>
+    <br>
+    <input type="text" id="name" name="dispatcher[name]">
+    <br><br>
+    <label for="email">Email:</label>
+    <br>
+    <input type="text" id="email" name=dispatcher[email]>
+    <br><br>
+    <label for="team">Please select your team:</label>
+    <br>
+    <% Team.all.each do |t| %>
+            <input type="radio" name="dispatcher[team_id]" value="<%=t.id%>" id="<%=t.id%>">
+            <label for="<%=t.id%>"><%= t.name %></label><br>
+        <% end %>
+    <br><br>
+    <input type="submit" value="Create new dispatcher">
+
+
+</form>
