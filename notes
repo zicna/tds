@@ -1,0 +1,94 @@
+MODELS:
+Team
+Dispatcher
+Load 
+Driver
+
+
+ASSOCIATIONS and ATTRIBUTES of CLASSES
+
+Dispatch:
+Belongs_to :dispatch_team
+Has_many :drivers, through: :loads
+Has_many :loads
+-attributes: name, team_id, password, email
+
+Team:
+Has_many :dispatchers
+Has_many :drivers
+Has_many :loads
+-attributes: name
+
+Driver:
+Has_many :dispatchers, through: :loads
+Has_many :loads
+Belongs_to :dispatch_team
+-attributes: name, truck number, trailer number, team_id
+
+Loads:
+Belongs_to :driver
+Belongs_to :dispatch 
+Belongs_to :dispatch_team
+-attributes: pickup, delivery, amount, miles, team_id,  dispatcher_id, driver_id,  notes
+
+join table Dispatch_Load_Driver:
+load_id
+dispatch_id
+driver_id
+
+
+Interface: 
+
+-Dispatcher can view load form
+-Dispatcher can create load form
+-Dispatcher can edit load form
+-Dispatcher can delete load 
+
+-Driver can view load/loads
+
+Team controller and views:
+    -'/teams' => render list of all teams 
+    -'/teams/:id/drivers' => render list of all drivers for that team
+    -'/teams/:id/loads'    => renders list of all loads for that team
+
+
+Dispatcher controller and views:
+******signup******
+    -'/dispatcher/signup' => renter sign up form
+    -'/dispatcher/signup' => process sign up form, create Dispatcher (via post)
+        send Dispatcher to page with all dispatchers listed as links 
+*******login******
+    -'/dispatcher/login' => render login form
+    -'/dispatcher/login' => process login form, post
+        send Dispatcher to page with all dispatchers listed as links
+********loads******
+    -'/dispatchers' render list of all dispatchers names as links
+    -'/dispatcher/:id' personal page of each dispatcher
+    -'/dispatcher/:id/loads' list of all loads for dispatcher
+    -'/dispatcher/:id/loads/new' creates new load
+********drivers*****
+    
+
+    Driver controller and views:
+******signup******
+    -'/driver/signup' => renter sign up form
+    -'/driver/signup' => process sign up form, create Driver (via post)
+        send Driver to his page with all his loads listed 
+*******login******
+    -'/driver/login' => render login form
+    -'/driver/login' => process login form, post
+        send Driver to his page with all his loads listed 
+********loads******
+    -'/driver/:id' => render info about a driver
+    -'/driver/:id'/laods => render list of all loads under that driver name
+
+-Dispatch: 
+signup/login
+create new load
+edit load
+create Driver
+edit Driver
+-Driver:
+can see load/loads only that he is on
+he can see how is the dispatcher on his loads
+
