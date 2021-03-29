@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_214121) do
+ActiveRecord::Schema.define(version: 2021_03_29_045728) do
 
   create_table "dispatchers", force: :cascade do |t|
     t.string "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2021_03_28_214121) do
     t.integer "truck"
     t.string "trailer"
     t.integer "team_id"
+    t.string "username"
+    t.string "password"
   end
 
   create_table "join_dispatch_driver", force: :cascade do |t|
