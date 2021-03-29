@@ -1,0 +1,6 @@
+<h2>List of all teams:</h2>
+<ol>
+    <% Team.all.each do |team|%>
+        <li><a href="/teams/<%=team.id%>"><%= team.name %></a></li>
+    <% end %>
+</ol>

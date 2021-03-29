@@ -11,9 +11,4 @@ class ApplicationController < Sinatra::Base
     erb :"/home/index"
   end
 
-  get "/login" do
-    erb :"/home/login"
-  end
-
-
 end

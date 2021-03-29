@@ -11,7 +11,7 @@ class DispatcherController < ApplicationController
         redirect to "/dispatchers/#{@dispatcher.id}"
     end
 
-    #show page where we render data of one instance
+    #show page where we render(show) data of one(individual) instance
     get '/dispatchers/:id' do 
         #binding.pry
         @dispatcher = Dispatcher.find_by_id(params[:id])
