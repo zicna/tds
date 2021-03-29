@@ -67,11 +67,13 @@ Dispatcher controller and views:
         -'/dispatchers/:id/loads' list of all loads for dispatcher
         -'/dispatchers/:id/loads/new' creates new load
     ********drivers*****
+        -'/drivers/:id/edit' only dispatcher should be able to assign driver with truck, trailer,...
+
     
 
 Driver controller and views:
     ******signup******
-        -'/driver/signup' => renter sign up form
+        -'/driver/signup' => renter sign up form (only name, username, password)
         -'/driver/signup' => process sign up form, create Driver (via post)
             send Driver to his page with all his loads listed 
     *******login******

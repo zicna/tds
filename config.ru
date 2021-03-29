@@ -7,3 +7,4 @@ require './config/environment'
 run ApplicationController
 use DispatcherController
 use TeamController
+use DriverController
