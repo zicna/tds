@@ -1,14 +1,13 @@
 
 <h2><%= @team.name %> team</h2>
-<h3>Dispacher <%= @dispatcher.name %> load board</h3>
-<h4>All loads under <%= @dispatcher.name %>: </h4>
+<h3>Load board</h3>
 <table>
+    <caption>Dispatcher: <%= @dispatcher.name %></caption>
     <th>Pickup</th>
     <th>Delivery</th>
     <th>Miles</th>
     <th>Amount</th><br>
-
-    <% @dispatcher.loads.each do |load| %>
+    <% @dispatcher_loads.each do |load| %>
         <tr>
             <td><%= load.pickup %></td>
             <td><%= load.delivery %></td>

@@ -18,7 +18,6 @@ class TeamController < ApplicationController
                 @teamloads << load
             end
         end
-        #binding.pry
         erb :"teams/show"
     end
 end

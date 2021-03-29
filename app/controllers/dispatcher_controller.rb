@@ -5,7 +5,6 @@ class DispatcherController < ApplicationController
     end
 
     post '/dispatchers' do
-        params.inspect
         @dispatcher = Dispatcher.create(params[:dispatcher])
 
         redirect to "/dispatchers/#{@dispatcher.id}"
@@ -13,9 +12,11 @@ class DispatcherController < ApplicationController
 
     #show page where we render(show) data of one(individual) instance
     get '/dispatchers/:id' do 
-        #binding.pry
         @dispatcher = Dispatcher.find_by_id(params[:id])
         @team = Team.find_by_id(@dispatcher.team_id)
+
+        @dispatcher_loads = @dispatcher.loads
+        # binding.pry
         erb :"dispatchers/show"
     end
 

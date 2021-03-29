@@ -1,26 +1,15 @@
-<h2>Welcome to team <%=@team.name%> page</h2>
+<h2>Welcome to team <%= @team.name %> page</h2>
 
-<h3>Please see  all dispatchers in our team: </h3>
 
-<table>
+
+<table width="50%">
+    <caption><%= @team.name %> dispatchers team</caption>
     <th>Name</th>
     <th>Email</th>
-    <th>Total loads</th>
-    
         <% @dispatchers.each do |disp| %>
             <tr>
                 <td><a href="/dispatchers/<%= disp.id%>"><%= disp.name %></a></td>
                 <td><%= disp.email %></td>
-                <td>
-                    <% @disp_loads = [] %>
-                    <% @teamloads.each do |load| %>
-                        <% if load.dispatcher_id == disp.id %>
-                            <% @disp_loads << load %>
-                        <% end %>
-                    <% end %>
-                    <% binding.pry %>
-                    <%=@disp_loads.size%>
-                </td>
             </tr>
         <% end %>
     
