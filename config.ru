@@ -8,3 +8,4 @@ run ApplicationController
 use DispatcherController
 use TeamController
 use DriverController
+use LoadController

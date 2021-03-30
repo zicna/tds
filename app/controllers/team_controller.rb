@@ -7,17 +7,17 @@ class TeamController < ApplicationController
         #binding.pry
         @team = Team.find_by(id: params[:id])
         @dispatchers = []
-        Dispatcher.all.each do |disp|
-            if disp.team_id == @team.id
-                @dispatchers << disp
+            Dispatcher.all.each do |disp|
+                if disp.team_id == @team.id
+                    @dispatchers << disp
+                end
             end
-        end
         @teamloads = []
-        Load.all.each do |load|
-            if load.team_id == @team.id
-                @teamloads << load
+            Load.all.each do |load|
+                if load.team_id == @team.id
+                    @teamloads << load
+                end
             end
-        end
         erb :"teams/show"
     end
 end

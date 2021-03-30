@@ -84,3 +84,10 @@ Driver controller and views:
         -'/driver/:id' => render info about a driver
         -'/driver/:id'/laods => render list of all loads under that driver name
 
+Load controller :
+    *******create*******
+    
+    *******read*******
+    *******update*******
+    *******delete*******
+

@@ -1,0 +1,29 @@
+<h2>New load:</h2>
+<div id="form-cnt">
+    <form action="/loads" method="post">
+        <label for="pickup">Pickup city:</label><br>
+        <input type="text" id="pickup" name="load[pickup]">
+        <br><br>
+        <label for="delivery">Delivery city:</label><br>
+        <input type="text" id="delivery" name="load[delivery]">
+        <br><br>
+        <label for="miles">Loaded miles:</label><br>
+        <input type="number" id="miles" name="load[miles]">
+        <br><br>
+        <label for="amount">Total paid:</label><br>
+        <input type="number" id="amount" name="load[amount]">
+        <br><br>
+        <label for="driver">Choose a driver:</label>
+        <br>
+            <select name="load[driver_id]">
+                <%Driver.all.each do |driver|%>
+                        <option id="driver" value="<%=driver.id%>"><%=driver.name%></option>
+                <%end%>
+            </select>
+        <br><br>
+        <label for="notes">Notes:</label><br>
+        <input type="text" id="notes" name="load[notes">
+        <br><br>
+        <input type="submit" value="Create new load">
+    </form>
+</div>
