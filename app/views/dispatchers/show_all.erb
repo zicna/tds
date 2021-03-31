@@ -10,9 +10,9 @@
         <%@dispatchers.each do |dispatcher|%>
             <tr>
                 <td><%= dispatcher.id %></td>
-                <td><%= dispatcher.name %></td>
-                <td><%= dispatcher.email %></td>
-                <td><%= Team.all.find_by(id: dispatcher.team_id).name %></td>
+                <td><a href="/dispatchers/<%=dispatcher.id%>"><%= dispatcher.name %></a></td>
+                <td><a href="mailto:<%= dispatcher.email %>"><%= dispatcher.email %></td>
+                <td><a href="/teams/<%=dispatcher.team_id%>"><%= Team.all.find_by(id: dispatcher.team_id).name %></a></td>
             </tr>
             <%end%>
     </table>

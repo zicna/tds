@@ -19,7 +19,7 @@ class DispatcherController < ApplicationController
     #show page where we render(show) data of one(individual) instance
     get '/dispatchers/:id' do 
         @dispatcher = Dispatcher.find_by_id(params[:id])
-        @team = Team.find_by_id(@dispatcher.team_id)
+        @team = Team.find_by(id: @dispatcher.team_id)
 
         @dispatcher_loads = @dispatcher.loads
         # binding.pry

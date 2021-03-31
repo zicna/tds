@@ -12,6 +12,11 @@ class DriverController < ApplicationController
     # end
 
     #driver show page
+
+    get "/drivers" do 
+        @drivers = Driver.all
+        erb :"/drivers/show_all"
+    end
     get '/drivers/:id' do
        # binding.pry
         @diver = Driver.find_by(id: params[:id])

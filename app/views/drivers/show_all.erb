@@ -1,0 +1,17 @@
+<h1>All drivers: </h1>
+
+<div id="table-cnt">
+    <table>
+        <caption>Driver board:</caption>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Team</th>
+        <%@drivers.each do |driver|%>
+            <tr>
+                <td><%= driver.id %></td>
+                <td><a href="/drivers/<%=driver.id%>"><%= driver.name %></a></td>
+                <td><a href="/teams/<%=driver.team_id%>"><%= Team.all.find_by(id: driver.team_id).name %></a></td>
+            </tr>
+            <%end%>
+    </table>
+<div>
