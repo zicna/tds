@@ -1,0 +1,19 @@
+<h1>All dispatchers: </h1>
+
+<div id="table-cnt">
+    <table>
+        <caption>Dispatcher board:</caption>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Team</th>
+        <%@dispatchers.each do |dispatcher|%>
+            <tr>
+                <td><%= dispatcher.id %></td>
+                <td><%= dispatcher.name %></td>
+                <td><%= dispatcher.email %></td>
+                <td><%= Team.all.find_by(id: dispatcher.team_id).name %></td>
+            </tr>
+            <%end%>
+    </table>
+<div>

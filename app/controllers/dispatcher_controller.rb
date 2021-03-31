@@ -1,5 +1,11 @@
 class DispatcherController < ApplicationController
 
+    get '/dispatchers' do
+        @dispatchers = Dispatcher.all
+
+        erb :"dispatchers/show_all"
+    end
+    
     get '/dispatchers/signup' do 
         erb :"dispatchers/signup"
     end
