@@ -1,10 +1,11 @@
 class TeamController < ApplicationController
+    #show all teams
     get '/teams' do
+
         erb :"teams/index"
     end
 
     get '/teams/:id' do
-        #binding.pry
         @team = Team.find_by(id: params[:id])
         @dispatchers = []
             Dispatcher.all.each do |disp|
