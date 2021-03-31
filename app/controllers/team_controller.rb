@@ -2,7 +2,7 @@ class TeamController < ApplicationController
     #show all teams
     get '/teams' do
 
-        erb :"teams/index"
+        erb :"teams/show_all"
     end
 
     get '/teams/:id' do

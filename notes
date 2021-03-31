@@ -1,17 +1,12 @@
-MODELS:
-Team
-Dispatcher
-Load 
-Driver
+****MODELS:
+Team; Dispatcher; Load; Driver
 
-
-ASSOCIATIONS and ATTRIBUTES of CLASSES
-
+****ASSOCIATIONS and ATTRIBUTES of CLASSES
 Dispatch:
 Belongs_to :dispatch_team
 Has_many :drivers, through: :loads
 Has_many :loads
--attributes: name, team_id, password, email
+-attributes: name, team_id, password, email, username
 
 Team:
 Has_many :dispatchers
@@ -23,71 +18,52 @@ Driver:
 Has_many :dispatchers, through: :loads
 Has_many :loads
 Belongs_to :dispatch_team
--attributes: name, truck number, trailer number, team_id
+-attributes: name, truck, trailer, team_id
 
-Loads:
+Load:
 Belongs_to :driver
 Belongs_to :dispatch 
 Belongs_to :dispatch_team
--attributes: pickup, delivery, amount, miles, team_id,  dispatcher_id, driver_id,  notes
+-attributes: pickup, delivery, amount, miles, dispatcher_id, driver_id, notes
 
+************************************
 join table Dispatch_Load_Driver:
 load_id
 dispatch_id
 driver_id
+************************************
 
+****ROUTES AND VIEWS****(view for all will always be table)
+Team:
+    -'/teams' => render all teams
+    -'/teams/:id => show single team; all dispatchers and all loads from team
 
-Interface: 
-
--Dispatcher can view load form
--Dispatcher can create load form
--Dispatcher can edit load form
--Dispatcher can delete load 
-
--Driver can view load/loads
-
-Team controller and views:
-    -'/teams' => render list of all teams 
     -'/teams/:id/drivers' => render list of all drivers for that team
     -'/teams/:id/loads'    => renders list of all loads for that team
 
-
-Dispatcher controller and views:
+Dispatcher:
+    -'/dispatchers' => show all dispatchers (name and team as links)
+    -'/dispatchers/new' => create new dispatcher???
     ******signup******
-        -'/dispatchers/signup' => renter sign up form
-        -'/dispatchers/signup' => process sign up form, create Dispatcher (via post)
-            send Dispatcher to page with all dispatchers listed as links 
+    -'/dispatchers/signup' => renter sign up form
+    -'/dispatchers/signup' => process sign up form, create Dispatcher (via post); redirect to view single disp
     *******login******
-        -'/dispatchers/login' => render login form
-        -'/dispatchers/login' => process login form, post
-            send Dispatcher to page with all dispatchers listed as links
-    ********loads******
-        -'/dispatchers/all' render list of all dispatchers names as links
-        -'/dispatchers/:id' personal page of each dispatcher
-        -'/dispatchers/:id/loads' list of all loads for dispatcher
-        -'/dispatchers/:id/loads/new' creates new load
-    ********drivers*****
-        -'/drivers/:id/edit' only dispatcher should be able to assign driver with truck, trailer,...
-
+    -'/dispatchers/login' => render login form
+    -'/dispatchers/login' => process login form, post
+        send Dispatcher to page with all dispatchers listed as links
+    ******************
+    -'/dispatchers/:id' => show single dispatcher; table of all his loads
+    -'/dispatchers/:id/edit' => edit dispatcher (update) 
+    -'/dispatchers/:id/delete' => delete dispatcher (mozda route '/dispatchers/delete')
     
+Driver:
+    -'/drivers' => show all drivers (name and team)
+    -'/drivers/:id' => show single driver (all attributes) and table of all his loads
 
-Driver controller and views:
-    ******signup******
-        -'/driver/signup' => renter sign up form (only name, username, password)
-        -'/driver/signup' => process sign up form, create Driver (via post)
-            send Driver to his page with all his loads listed 
-    *******login******
-        -'/driver/login' => render login form
-        -'/driver/login' => process login form, post
-            send Driver to his page with all his loads listed 
-    ********loads******
-        -'/driver/:id' => render info about a driver
-        -'/driver/:id'/laods => render list of all loads under that driver name
-
-Load controller :
-    *******create*******
-    
-    *******read*******
-    *******update*******
-    *******delete*******
+Load:
+    -'/loads' => show all loads in table (with all attributes; id, disp, driver as links)
+    -'/loads/:id' => show single load
+    -'/loads/:id/edit' => edit (update) single load
+    -'/loads/:id/new' => create new load, and redirect to ??
+    -'/loads/delete' => delete load
 
