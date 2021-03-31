@@ -1,11 +1,12 @@
 class LoadController < ApplicationController
-
+    #list all loads
     get '/loads' do
-        "hello"
+        @loads = Load.all
+        erb :"loads/show_all"
     end
     #create
     get '/loads/new' do
-        erb :"/loads/new"
+        erb :"loads/new"
     end
 
     post '/loads' do
@@ -21,6 +22,7 @@ class LoadController < ApplicationController
         @load = Load.create(params[:load])
         redirect to "/loads/#{@load.id}"
     end
+
     #read/show
     get '/loads/:id' do
         @load = Load.find_by(id: params[:id])

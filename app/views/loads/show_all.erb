@@ -1,0 +1,28 @@
+<h1>All loads:</h1>
+
+<div id="table-cnt">
+    <table>
+        <caption></caption>
+        <th>Load number</th>
+        <th>Pickup</th>
+        <th>Delivery</th>
+        <th>Loaded miles</th>
+        <th>Amount paid</th>
+        <th>Dispatcher</th>
+        <th>Driver</th>
+        
+            <%@loads.each do |load|%>
+                <tr>
+                    <td><%= load.id %></td>
+                    <td><%= load.pickup %></td>
+                    <td><%= load.delivery %></td>
+                    <td><%= load.miles %></td>
+                    <td><%= load.amount %></td>
+                    <td><a href="/dispatchers/<%=load.dispatcher_id%>"><%= Dispatcher.all.find_by(id: load.dispatcher_id).name%></a></td>
+                    <td><a href="/drivers/<%=load.driver_id%>"><%= Driver.all.find_by(id: load.driver_id).name %></td>
+                </tr>
+                <%end%>
+        
+
+    </table>
+</div>
