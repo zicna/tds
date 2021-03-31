@@ -1,0 +1,7 @@
+<h1>Drivers for <%= @team.name%><h1>
+
+<ol>
+    <% @team_drivers.each do |driver|%>
+        <li><a href="/drivers/<%=driver.id%>"><%= driver.name %></a></li>
+        <%end%>
+</ol>

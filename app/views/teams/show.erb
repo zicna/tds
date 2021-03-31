@@ -12,5 +12,17 @@
                 <td><%= disp.email %></td>
             </tr>
         <% end %>
-    
 </table>
+
+<table>
+    <caption><%= @team.name %> load board</caption>
+    <th>Load number</th>
+    <th>Pickup</th>
+    <th>Delivery</th>
+    <th>Loaded miles</th>
+    <th>Amount paid</th>
+    <th>Dispatcher</th>
+    <th>Driver</th>
+</table>
+
+<a href="/teams/<%=@team.id%>/drivers">Go to <%= @team.name %> drivers</a>

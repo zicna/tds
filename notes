@@ -35,7 +35,7 @@ driver_id
 
 ****ROUTES AND VIEWS****(view for all will always be table)
 Team:
-    -'/teams' => render all teams
+    x'/teams' => render all teams
     -'/teams/:id => show single team; all dispatchers and all loads from team
 
     -'/teams/:id/drivers' => render list of all drivers for that team
