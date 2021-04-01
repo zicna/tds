@@ -44,4 +44,7 @@ class TeamController < ApplicationController
 
         redirect to '/teams'
     end
+
+    #delete team
+    
 end

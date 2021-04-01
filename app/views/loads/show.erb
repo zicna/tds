@@ -1,0 +1,19 @@
+<h2>Load <%= @load.id %> page: </h2>
+
+<p><b>Load number: </b> <%= @load.id %></p>
+<p><b>Pickup: </b> <%= @load.pickup %></p>
+<p><b>Delivery: </b> <%= @load.delivery %></p>
+<p><b>Loaded miles: </b> <%= @load.miles %></p>
+<p><b>Total pay: </b> <%= @load.amount %></p>
+<p><b>Dispatcher: </b> <%= @load.dispatcher.name %></p>
+<p><b>Driver: </b> <%= @load.driver.name %></p>
+<p><b>Notes: </b> <%= @load.notes %></p>
+
+
+
+<div id="btn-edit">
+        <a class="button" href="/loads/<%=@load.id%>/edit">Edit load</a>
+</div>
+<div id="btn-delete">
+        <a class="button" href="/loads/<%=@load.id%>/delete">Delete load</a>
+</div>

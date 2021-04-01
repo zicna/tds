@@ -1,4 +1,4 @@
-****MODELS:
+****MODELS****
 Team; Dispatcher; Load; Driver
 
 ****ASSOCIATIONS and ATTRIBUTES of CLASSES
@@ -42,13 +42,13 @@ Team:
     -'/teams/:id/loads'    => renders list of all loads for that team
 
 Dispatcher:
-    -'/dispatchers' => show all dispatchers (name and team as links)
+    x'/dispatchers' => show all dispatchers (name and team as links)
     -'/dispatchers/new' => create new dispatcher???
     ******signup******
     -'/dispatchers/signup' => renter sign up form
     -'/dispatchers/signup' => process sign up form, create Dispatcher (via post); redirect to view single disp
     *******login******
-    -'/dispatchers/login' => render login form
+    x'/dispatchers/login' => render login form
     -'/dispatchers/login' => process login form, post
         send Dispatcher to page with all dispatchers listed as links
     ******************
@@ -57,11 +57,11 @@ Dispatcher:
     -'/dispatchers/:id/delete' => delete dispatcher (mozda route '/dispatchers/delete')
     
 Driver:
-    -'/drivers' => show all drivers (name and team)
+    x'/drivers' => show all drivers (name and team)
     -'/drivers/:id' => show single driver (all attributes) and table of all his loads
 
 Load:
-    -'/loads' => show all loads in table (with all attributes; id, disp, driver as links)
+    x'/loads' => show all loads in table (with all attributes; id, disp, driver as links)
     -'/loads/:id' => show single load
     -'/loads/:id/edit' => edit (update) single load
     -'/loads/:id/new' => create new load, and redirect to ??

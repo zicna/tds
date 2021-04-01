@@ -13,7 +13,7 @@
         
             <%@loads.each do |load|%>
                 <tr>
-                    <td><%= load.id %></td>
+                    <td><a href="/loads/<%=load.id%>"><%= load.id %></a></td>
                     <td><%= load.pickup %></td>
                     <td><%= load.delivery %></td>
                     <td><%= load.miles %></td>
