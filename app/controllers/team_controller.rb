@@ -5,11 +5,13 @@ class TeamController < ApplicationController
         erb :"teams/show_all"
     end
 
+    #create new; render form
     get '/teams/new' do
-        
+
         erb :"/teams/new"
     end
 
+    #show single team
     get '/teams/:id' do
         @team = Team.find_by(id: params[:id])
         @dispatchers = []
@@ -33,5 +35,13 @@ class TeamController < ApplicationController
         end
     
         erb :"/teams/team_drivers"
+    end
+
+    #create new team
+    post '/teams' do
+        #binding.pry
+        @team = Team.create(params[:team])
+
+        redirect to '/teams'
     end
 end
