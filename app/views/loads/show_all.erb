@@ -22,7 +22,10 @@
                     <td><a href="/drivers/<%=load.driver_id%>"><%= Driver.all.find_by(id: load.driver_id).name %></td>
                 </tr>
                 <%end%>
-        
-
     </table>
+</div>
+
+<br><br>
+<div id="btn-new">
+    <a class="button" href="/teams/new">Add new load</a>
 </div>
