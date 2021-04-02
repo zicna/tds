@@ -1,1 +1,14 @@
-hello
+
+<h2>Welcome to <%=@driver.name%> page</h2>
+
+<p><b>Driver name: </b><%= @driver.name %></p>
+<p><b>Truck number: </b><%= @driver.truck %></p>
+<p><b>Trailer number: </b><%= @driver.trailer %></p>
+<p><b>Team: </b><%= @driver.team.name%></p>
+<br><br>
+<div id="btn-edit">
+        <a class="button" href="/loads/<%=@driver.id%>/edit">Edit driver</a>
+</div>
+<div id="btn-delete">
+        <a class="button" href="/loads/<%=@driver.id%>/delete">Delete driver</a>
+</div>
