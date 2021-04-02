@@ -18,10 +18,10 @@
                     <td><%= load.delivery %></td>
                     <td><%= load.miles %></td>
                     <td><%= load.amount %></td>
-                    <td><a href="/dispatchers/<%=load.dispatcher_id%>"><%= Dispatcher.all.find_by(id: load.dispatcher_id).name%></a></td>
-                    <td><a href="/drivers/<%=load.driver_id%>"><%= Driver.all.find_by(id: load.driver_id).name %></td>
+                    <td><a href="/dispatchers/<%=load.dispatcher_id%>"><%= Dispatcher.all.find_by(id: load.dispatcher_id) ? Dispatcher.all.find_by(id: load.dispatcher_id).name : "no disptcher"%></a></td>
+                    <td><a href="/drivers/<%=load.driver_id%>"><%= Driver.all.find_by(id: load.driver_id) ? Driver.all.find_by(id: load.driver_id).name : "no driver" %></td>
                 </tr>
-                <%end%>
+            <%end%>
     </table>
 </div>
 
