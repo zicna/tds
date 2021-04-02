@@ -1,1 +1,32 @@
-<%binding.pry%>
+<table>
+    <caption><%= @team.name %> load board</caption>
+    <th>Load number</th>
+    <th>Pickup</th>
+    <th>Delivery</th>
+    <th>Loaded miles</th>
+    <th>Amount paid</th>
+    <th>Dispatcher</th>
+    <th>Driver</th>
+    <%@loads.each do |load|%>
+        <tr>
+            <td><%=load.id%></td>
+            <td><%=load.pickup%></td>
+            <td><%=load.delivery%></td>
+            <td><%=load.miles%></td>
+            <td><%=load.amount%></td>
+            
+            <%@dispatchers.each do |disp|%>
+                <%if disp.id == load.dispatcher_id%>
+                    <td><%= disp.name %></td>   
+                <%end%>
+            <%end%>
+
+            <%@drivers.each do |driver|%>
+                <%if driver.id == load.driver_id%>
+                    <td><%= driver.name %></td>
+                <%end%>
+            <%end%>
+        </tr>
+        <%end%>
+</table>
+

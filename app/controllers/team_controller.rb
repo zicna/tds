@@ -29,6 +29,10 @@ class TeamController < ApplicationController
 
     get '/teams/:id/loads' do
         @team = Team.find_by(id: params[:id])
+        # binding.pry
+        @loads = @team.loads
+        @dispatchers = @team.dispatchers
+        @drivers = @team.drivers
 
         erb :"/teams/show_loads"
     end
