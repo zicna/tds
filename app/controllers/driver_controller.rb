@@ -22,10 +22,16 @@ class DriverController < ApplicationController
     end
     
     patch '/drivers/:id' do 
-        # binding.pry
         @driver = Driver.all.find_by(id: params[:id])
         @driver.update(params[:driver])
 
         redirect to "/drivers/#{@driver.id}"
+    end
+
+    get '/drivers/:id/delete' do
+        @driver = Driver.all.find_by(id: params[:id])
+        @driver.delete
+
+        redirect to "/drivers"
     end
 end
