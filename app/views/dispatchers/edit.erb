@@ -1,0 +1,27 @@
+<div id="form-edit">
+    <form action="/dispatchers/<%=@dispatcher.id%>" method="post"> 
+        <caption></caption>
+        <input type="hidden" name="_method" value="patch">
+        <label for="name"><b>Name:</b></lable>
+        <input type="text" id="name" name="dispatcher[name]" value="<%= @dispatcher.name%>" autofocus>
+        <br><br>
+        <label for="team"><b>Team:</b></lable>
+        <%Team.all.each do |team|%>
+            <input type="radio" id="team" name="dispatcher[team_id]" value="<%=team.id%>" <%='checked' if @dispatcher.team_id == team.id%>><%= team.name %>
+            <%end%>
+        <br><br>
+        <label for="email"><b>Email:</b></lable>
+        <input type="email" id="email" name="dispatcher[email]" value="<%= @dispatcher.email%>">
+        <br><br>
+
+        <label for="username"><b>Username:</b></lable>
+        <input type="text" id="username" name="dispatcher[username]" value="<%= @dispatcher.username%>">
+        <br><br>
+        <label for="password"><b>Password:</b></lable>
+        <input type="text" id="password" name="dispatcher[password]" value="<%= @dispatcher.password%>">
+        
+        <br><br><br>
+
+        <input type="submit" value="Edit dispatcher">
+    </form>
+</div>

@@ -21,10 +21,33 @@ class DispatcherController < ApplicationController
     get '/dispatchers/:id' do 
         @dispatcher = Dispatcher.find_by_id(params[:id])
         @team = Team.find_by(id: @dispatcher.team_id)
-        @dispatcher_loads = @dispatcher.loads
+        @loads = @dispatcher.loads
 
         erb :"dispatchers/show"
     end
+
+    #edit
+    get '/dispatchers/:id/edit' do
+        @dispatcher = Dispatcher.all.find_by(id: params[:id])
+
+        erb :"dispatchers/edit"
+    end
+
+    patch '/dispatchers/:id' do 
+        @dispatcher = Dispatcher.all.find_by(id: params[:id])
+        @dispatcher.update(params[:dispatcher])
+
+        redirect to "dispatchers/#{@dispatcher.id}"
+    end
+
+    #delete
+    get '/dispatchers/:id/delete' do
+        @dispatcher = Dispatcher.all.find_by(id: params[:id])
+        @dispatcher.delete
+
+        redirect to "dispatchers/#{@dispatcher.id}"
+    end
+
 
 
 end

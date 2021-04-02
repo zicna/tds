@@ -1,5 +1,8 @@
 
 <h2><%= @team.name %> team</h2>
+<p>Dispatcher Name: <b><%= @dispatcher.name %></b></p>
+<p>Username: <b><%= @dispatcher.username %></b></p>
+<p>Email: <b><%= @dispatcher.email %></b></p>
 <h3>Load board</h3>
 <div id="table-cnt">
     <table>
@@ -8,7 +11,7 @@
         <th>Delivery</th>
         <th>Miles</th>
         <th>Amount</th><br>
-        <% @dispatcher_loads.each do |load| %>
+        <% @loads.each do |load| %>
             <tr>
                 <td><%= load.pickup %></td>
                 <td><%= load.delivery %></td>
@@ -18,4 +21,13 @@
         <% end %>
     </table>
 </div>
+<br><br>
+<div id="btn-edit">
+        <a class="button" href="/dispatchers/<%=@dispatcher.id%>/edit">Edit dispatcher</a>
+</div>
+<div id="btn-delete">
+        <a class="button" href="/dispatchers/<%=@dispatcher.id%>/delete">Delete dispatcher</a>
+</div>
+
+
 

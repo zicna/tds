@@ -12,9 +12,9 @@
         <input type="text" id="trailer" name="driver[trailer]" value="<%= @driver.trailer%>">
         <br><br>
 
-        <label for="name"><b>Team:</b></lable>
+        <label for="team"><b>Team:</b></lable>
         <%Team.all.each do |team|%>
-            <input type="radio" name="driver[team_id]" value="<%=team.id%>" <%='checked' if @driver.team_id == team.id%>><%= team.name %>
+            <input type="radio" id="team" name="driver[team_id]" value="<%=team.id%>" <%='checked' if @driver.team_id == team.id%>><%= team.name %>
             <%end%>
         <br><br><br>
 
