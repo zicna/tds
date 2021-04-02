@@ -1,0 +1,27 @@
+<h2>Changes for load <%=@load.id%></h2>
+<div id="form-edit">
+    <form action="/loads/<%=@load.id%>" method="post">
+        <input type="hidden" name="_method" value="patch" >
+
+        <label for="pickup"><b>Pickup:</b> </label>
+        <input type="text" id="pickup" name="load[pickup]" value="<%= @load.pickup %>" autofocus>
+        <br><br>
+        <label for="delivery"><b>Delivery:</b> </label>
+        <input type="text" id="delivery" name="load[delivery]" value="<%= @load.delivery %>">
+        <br><br>
+        <label for="miles"><b>Loaded miles:</b> </label>
+        <input type="text" id="miles" name="load[miles]" value="<%= @load.miles %>">
+        <br><br>
+        <label for="amount"><b>Total pay:</b> </label>
+        <input type="text" id="amount" name="load[amount]" value="<%= @load.amount %>">
+        <br><br>
+
+        
+
+        <label for="notes"><b>Notes:</b> </label>
+        <input type="text" id="notes" name="load[notes]" value="<%= @load.notes %>">
+        <br><br>
+        <input type="submit" value="Edit load">
+        
+    </form>
+</div>

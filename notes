@@ -67,3 +67,12 @@ Load:
     -'/loads/:id/new' => create new load, and redirect to ??
     -'/loads/delete' => delete load
 
+
+
+    <label for="dispatcher"><b>Dispatcher:</b> </label>
+        <input type="text" id="dispatcher" name="load[dispatcher]" value="<%= @load.dispatcher.name %>">
+        <br><br>
+        <label for="driver"><b>Driver:</b> </label>
+        <input type="text" id="driver" name="load[driver]" value="<%= @load.driver.name %>">
+        <br><br>
+
