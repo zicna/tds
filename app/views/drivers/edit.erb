@@ -1,0 +1,23 @@
+<div id="form-edit">
+    <form action="/drivers/<%=@driver.id%>" method="post"> 
+        <caption></caption>
+        <input type="hidden" name="_method" value="patch">
+        <label for="name"><b>Name:</b></lable>
+        <input type="text" id="name" name="driver[name]" value="<%= @driver.name%>" autofocus>
+        <br><br>
+        <label for="truck"><b>Truck number:</b></lable>
+        <input type="number" id="truck" name="driver[truck]" value="<%= @driver.truck%>">
+        <br><br>
+        <label for="trailer"><b>Trailer id:</b></lable>
+        <input type="text" id="trailer" name="driver[trailer]" value="<%= @driver.trailer%>">
+        <br><br>
+
+        <label for="name"><b>Team:</b></lable>
+        <%Team.all.each do |team|%>
+            <input type="radio" name="driver[team_id]" value="<%=team.id%>" <%='checked' if @driver.team_id == team.id%>><%= team.name %>
+            <%end%>
+        <br><br><br>
+
+        <input type="submit" value="Edit driver">
+    </form>
+</div>
