@@ -14,12 +14,7 @@ class TeamController < ApplicationController
     #show single team
     get '/teams/:id' do
         @team = Team.find_by(id: params[:id])
-        @dispatchers = []
-            Dispatcher.all.each do |disp|
-                if disp.team_id == @team.id
-                    @dispatchers << disp
-                end
-            end
+        @dispatchers = @team.dispatchers
 
         erb :"teams/show"
     end
@@ -27,19 +22,19 @@ class TeamController < ApplicationController
     #show all drivers for the team
     get '/teams/:id/drivers' do
         @team = Team.find_by(id: params[:id])
-        @team_drivers = []
-        Driver.all.each do |driver|
-            if driver.team_id == params[:id].to_i
-                @team_drivers << driver
-            end
-        end
+        @team_drivers = @team.drivers
     
-        erb :"/teams/team_drivers"
+        erb :"/teams/show_drivers"
+    end
+
+    get '/teams/:id/loads' do
+        @team = Team.find_by(id: params[:id])
+
+        erb :"/teams/show_loads"
     end
 
     #create new team
     post '/teams' do
-        #binding.pry
         @team = Team.create(params[:team])
 
         redirect to '/teams'

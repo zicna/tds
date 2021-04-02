@@ -14,23 +14,17 @@
         <% end %>
 </table>
 
-<table>
-    <caption><%= @team.name %> load board</caption>
-    <th>Load number</th>
-    <th>Pickup</th>
-    <th>Delivery</th>
-    <th>Loaded miles</th>
-    <th>Amount paid</th>
-    <th>Dispatcher</th>
-    <th>Driver</th>
-</table>
+
 <br>
 <div id="btn-show">
     <a class="button" href="/teams/<%=@team.id%>/drivers">Go to <%= @team.name %> drivers</a>
 </div>
+<div id="btn-show">
+    <a class="button" href="/teams/<%=@team.id%>/loads">Go to <%= @team.name %> loads</a>
+</div>
 <div id="btn-edit">
-        <a class="button" href="/teams/edit">Edit team</a>
+        <a class="button" href="/teams/:id/edit">Edit team name</a>
 </div>
 <div id="btn-delete">
-        <a class="button" href="/teams/delete">Delete team</a>
+        <a class="button" href="/teams/:id/delete">Delete team</a>
 </div>

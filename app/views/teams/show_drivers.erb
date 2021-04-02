@@ -1,0 +1,15 @@
+<h1>Drivers for <%= @team.name%><h1>
+<div id="table-cnt">
+    <table>
+        <th>Name</th>
+        <th>Truck</th>
+        <th>Trailer</th>
+        <% @team_drivers.each do |driver|%>
+            <tr>
+                <td><a href="/drivers/<%=driver.id%>"><%= driver.name %></a></td>
+                <td><%= driver.truck %></td>
+                <td><%= driver.trailer %></td>
+                <%end%>
+            </tr>
+    </table>
+</div>
