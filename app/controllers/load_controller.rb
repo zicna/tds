@@ -34,8 +34,14 @@ class LoadController < ApplicationController
     #update
     get '/loads/:id/edit' do
         @load = Load.find_by(id: params[:id])
+        
+        if current_user && @load.dispatcher_id == session[:user_id]
+            @load = Load.find_by(id: params[:id])
 
-        erb :"loads/edit"
+            erb :"loads/edit"
+        else
+            erb :"dispatchers/error_access_denied"
+        end
     end
 
     patch '/loads/:id' do
@@ -48,9 +54,14 @@ class LoadController < ApplicationController
     #delete
     get '/loads/:id/delete' do 
         @load = Load.find_by(id: params[:id])
-        @load.delete
+        if current_user && @load.dispatcher_id == session[:user_id]
+            
+            @load.delete
 
-        redirect to "/loads"
+            redirect to "/loads"
+        else
+            erb :"dispatchers/error_access_denied"
+        end
     end
     
 end

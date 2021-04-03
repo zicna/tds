@@ -12,7 +12,13 @@
                 <td><%= dispatcher.id %></td>
                 <td><a href="/dispatchers/<%=dispatcher.id%>"><%= dispatcher.name %></a></td>
                 <td><a href="mailto:<%= dispatcher.email %>"><%= dispatcher.email %></td>
-                <td><a href="/teams/<%=dispatcher.team_id%>"><%= Team.all.find_by(id: dispatcher.team_id).name %></a></td>
+                
+                <% if Team.find_by(id: dispatcher.team_id) %>
+                    <td><a href="/teams/<%=dispatcher.team_id%>"><%= Team.find_by(id: dispatcher.team_id).name %></a></td>
+                <%else%>
+                    <td>"no Team assigned"</td>
+                <%end%>
+                 
             </tr>
             <%end%>
     </table>
