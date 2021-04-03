@@ -12,13 +12,14 @@ class LoadController < ApplicationController
 
     #render form for creating new load
     get '/loads/new' do
+        @dispatcher = Dispatcher.find_by(id: session[:user_id])
+        @team = Team.find_by(id: @dispatcher[:team_id])
 
         erb :"loads/new"
     end
 
     #receiving end for new load form
     post '/loads' do
-        #as load attribute disp_id it would be nice to use id from loged in user and not putting in manually
         @load = Load.create(params[:load])
 
         redirect to "/loads/#{@load.id}"

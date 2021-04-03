@@ -22,7 +22,9 @@
             </select>
         <br><br>
         <label for="notes">Notes:</label><br>
-        <input type="text" id="notes" name="load[notes">
+        <input type="text" id="notes" name="load[notes]">
+        <input type="hidden" name="load[dispatcher_id]" value="<%=@dispatcher.id%>">
+        <input type="hidden" name="load[team_id]" value="<%=@team.id%>">
         <br><br>
         <input type="submit" value="Create new load">
     </form>
