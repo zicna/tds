@@ -1,6 +1,7 @@
 <h2>Welcome to team <%= @team.name %> page</h2>
 
-
+<p>Name: <b><%= @team.name %></b></p>
+<p>Team number in our system: <b><%= @team.id %></b>
 
 <table width="50%">
     <caption><%= @team.name %> dispatchers team</caption>
@@ -23,8 +24,8 @@
     <a class="button" href="/teams/<%=@team.id%>/loads">Go to <%= @team.name %> loads</a>
 </div>
 <div id="btn-edit">
-        <a class="button" href="/teams/:id/edit">Edit team name</a>
+        <a class="button" href="/teams/<%=@team.id%>/edit">Edit team name</a>
 </div>
 <div id="btn-delete">
-        <a class="button" href="/teams/:id/delete">Delete team</a>
+        <a class="button" href="/teams/<%=@team.id%>/delete">Delete team</a>
 </div>

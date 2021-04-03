@@ -10,6 +10,7 @@ class TeamController < ApplicationController
     end
     #create new; render form
     get '/teams/new' do
+       
         erb :"/teams/new"
     end
     #show single team
@@ -38,6 +39,33 @@ class TeamController < ApplicationController
         @team = Team.create(params[:team])
         redirect to '/teams'
     end
+    #edit team
+    get '/teams/:id/edit' do
+        if current_user && current_user.team_id == params[:id].to_i
+            @team = Team.find_by(id: params[:id])
+            erb :"teams/edit"
+        else
+            erb :"dispatchers/error_access_denied"
+        end
+    end
+
+    patch '/teams' do
+        @team = Team.find_by(id: params[:team][:id])
+        @team.update(params[:team])
+
+        redirect "/teams/#{@team.id}"
+    end
+
     #delete team
+    get '/teams/:id/delete' do
+        if current_user && current_user.team_id == params[:id].to_i
+            @team = Team.find_by(id: params[:id])
+            @team.delete
+            
+            redirect to "/teams"
+        else
+            erb :"dispatchers/error_access_denied"
+        end
+    end
 
 end
