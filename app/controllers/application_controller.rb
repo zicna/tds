@@ -15,14 +15,29 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+
     erb :"/home/index"
   end
 
-  post '/set-flash' do
-    # Set a flash entry
-    flash[:notice] = "Thanks for signing up!"
-    
-    
+  #login route (render login form)
+  get '/login' do
+
+    erb :"dispatchers/login"
   end
+
+  #processing login form
+  post '/login' do
+    @dispatcher = Dispatcher.find_by(username: params[:dispatcher][:username])
+
+    if @dispatcher && @dispatcher.password == params[:dispatcher][:password]
+      session[:user_id] = @dispatcher.id
+
+      redirect to "/dispatchers/#{@dispatcher.id}"
+    end
+    
+    erb :"dispatchers/error"
+  end
+
+
 end
   
