@@ -14,28 +14,32 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <header id="main-header">
-      <div>
-        <a class="button" id="btn-home"href="/">home</a>
-      </div>
-      <div>
-        <a class="button" id="btn-teams"href="/teams">teams</a>
-      </div>
-      <div>
-        <a class="button" id="btn-loads"href="/loads">loads</a>
-      </div>
-      <div>
-        <a class="button" id="btn-dispatchers" href="/dispatchers">dispatchers</a>
-      </div>
-      <div>
-        <a class="button" id="btn-drivers" href="/drivers">drivers</a>
-      </div>
-      <div>
-        <a class="button" id="btn-login" href="/login">login in</a><b> / </b>
-        <a class="button" id="btn-logout" href="/logout">login out</a>
-
-      </div>
-    </header>
+    <div class="main-header">
+      <%if logged_in?%>
+        <div>
+          <a class="button" id="btn-home"href="/">home</a>
+        </div>
+        <div>
+          <a class="button" id="btn-teams"href="/teams">teams</a>
+        </div>
+        <div>
+          <a class="button" id="btn-loads"href="/loads">loads</a>
+        </div>
+        <div>
+          <a class="button" id="btn-dispatchers" href="/dispatchers">dispatchers</a>
+        </div>
+        <div>
+          <a class="button" id="btn-drivers" href="/drivers">drivers</a>
+        </div>
+        <div>
+          <a class="button" id="btn-logout" href="/logout">login out</a>
+        </div>
+      <%else%>
+        <div>
+          <a class="button" id="btn-login" href="/login">login in</a>
+        </div>
+      <%end%>
+    </div>
     <div class="wrapper">
 
         <%= yield %>

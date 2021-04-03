@@ -44,6 +44,7 @@ class ApplicationController < Sinatra::Base
 
   #dispatcher signout
   get '/logout' do
+    #session[:user_id] = nil
     session.clear
     redirect to '/'
   end
