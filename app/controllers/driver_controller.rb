@@ -21,8 +21,11 @@ class DriverController < ApplicationController
     #edit/ update
     get '/drivers/:id/edit' do 
         @driver = Driver.all.find_by(id: params[:id])
-
-        erb :"drivers/edit"
+        if current_user.team_id == @driver.team_id
+            erb :"drivers/edit"
+        else
+            erb :"dispatchers/error_access_denied"
+        end
     end
     
     patch '/drivers/:id' do 
@@ -34,8 +37,12 @@ class DriverController < ApplicationController
 
     get '/drivers/:id/delete' do
         @driver = Driver.all.find_by(id: params[:id])
-        @driver.delete
-
-        redirect to "/drivers"
+        if current_user.team_id == @driver.team_id
+            @driver.delete
+            redirect to "/drivers"
+        else
+            erb :"dispatchers/error_access_denied"
+        end
+        
     end
 end
