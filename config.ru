@@ -7,6 +7,8 @@ require './config/environment'
 #Without it Sinatra won't know what do with input type="hidden" value="patch" name="_method"
 use Rack::MethodOverride
 
+# use Rack::Session::Pool, :expire_after => 2592000
+
 run ApplicationController
 use DispatcherController
 use TeamController
