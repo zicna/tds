@@ -1,9 +1,13 @@
 class LoadController < ApplicationController
     #show all  loads route
     get '/loads' do
+        if logged_in?
         @loads = Load.all
 
         erb :"loads/show_all"
+        else
+            erb :"dispatchers/login"
+        end
     end
 
     #render form for creating new load

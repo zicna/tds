@@ -2,9 +2,13 @@ class DriverController < ApplicationController
    
     #show all drivers route
     get "/drivers" do 
-        @drivers = Driver.all
+        if logged_in?
+            @drivers = Driver.all
 
-        erb :"/drivers/show_all"
+            erb :"/drivers/show_all"
+        else
+            erb :"dispatchers/login"
+        end
     end
 
     #show single driver route

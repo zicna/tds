@@ -21,8 +21,12 @@ class ApplicationController < Sinatra::Base
 
   #login route (render login form)
   get '/login' do
-
-    erb :"dispatchers/login"
+    if logged_in?
+      #binding.pry
+      erb :"dispatchers/error_already_login"
+    else 
+      erb :"dispatchers/login"
+    end
   end
 
   #processing login form
@@ -34,9 +38,26 @@ class ApplicationController < Sinatra::Base
 
       redirect to "/dispatchers/#{@dispatcher.id}"
     end
-    
+
     erb :"dispatchers/error"
   end
+
+  #dispatcher signout
+  get '/logout' do
+    session.clear
+    redirect to '/'
+  end
+
+  helpers do
+    def logged_in?
+      !!session[:user_id]
+    end
+
+    def current_user
+      User.find(session[:user_id])
+    end
+  end
+
 
 
 end

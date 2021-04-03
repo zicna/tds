@@ -5,13 +5,20 @@ class DispatcherController < ApplicationController
 
     #show all dispatchers route
     get '/dispatchers' do
-        @dispatchers = Dispatcher.all
+        if logged_in? 
+            @dispatchers = Dispatcher.all
 
-        erb :"dispatchers/show_all"
+            erb :"dispatchers/show_all"
+        else
+            erb :"dispatchers/login"
+        end
     end
 
     #dispatcher signup route
     get '/dispatchers/signup' do 
+        if logged_in?(session)
+            erb :"dispatchers/error_already_login"
+        end
         erb :"dispatchers/signup"
     end
     
@@ -21,8 +28,6 @@ class DispatcherController < ApplicationController
 
         redirect to "/dispatchers/#{@dispatcher.id}"
     end
-
-    
 
     #show page for single dispatcher
     get '/dispatchers/:id' do 
