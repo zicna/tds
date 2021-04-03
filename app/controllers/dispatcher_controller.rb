@@ -16,7 +16,7 @@ class DispatcherController < ApplicationController
 
     #dispatcher signup route
     get '/dispatchers/signup' do 
-        if logged_in?(session)
+        if logged_in?
             erb :"dispatchers/error_already_login"
         end
         erb :"dispatchers/signup"
