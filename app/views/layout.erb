@@ -16,6 +16,7 @@
   <body>
     <div class="main-header">
       <%if logged_in?%>
+        <h4> Signed is as: <a href="dispatchers/<%=current_user.name%>"><%= current_user.name %></a></h4>
         <div>
           <a class="button" id="btn-home"href="/">home</a>
         </div>
