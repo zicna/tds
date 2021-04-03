@@ -8,14 +8,14 @@ teams.each do |team|
 end
 
 dispatchers = [
-    {name: "Clark", team_id: 1,password: "fj_clark" },
-    {name: "Jason", team_id: 1,password: "fj_jason" },
-    {name: "Milo", team_id: 1,password: "fj_milo"},
-    {name: "Marko", team_id: 1,password: "fj_marko"},
-    {name: "Pavle", team_id: 2,password: "fj_pavle"},
-    {name: "Lasica", team_id: 2,password: "fj_lasica"},
-    {name: "Milena", team_id: 2,password: "fj_milena"},
-    {name: "Branko", team_id: 2,password: "fj_branko"}
+    {name: "Clark", team_id: 1, username: "clark", email: "clark@fj.com", password: "fj_clark" },
+    {name: "Jason", team_id: 1, username: "jason", email: "jason@fj.com",password: "fj_jason" },
+    {name: "Milo", team_id: 1, username: "milo", email: "milo@fj.com",password: "fj_milo"},
+    {name: "Marko", team_id: 1, username: "marko", email: "marko@fj.com",password: "fj_marko"},
+    {name: "Pavle", team_id: 2, username: "pavle", email: "pavle@fj.com",password: "fj_pavle"},
+    {name: "Lasica", team_id: 2, username: "lasica", email: "lasica@fj.com",password: "fj_lasica"},
+    {name: "Milena", team_id: 2, username: "milena", email: "milena@fj.com",password: "fj_milena"},
+    {name: "Branko", team_id: 2, username: "branko", email: "branko@fj.com",password: "fj_branko"}
 ]
 
 dispatchers.each do |disp|
