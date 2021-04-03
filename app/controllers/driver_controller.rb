@@ -11,6 +11,20 @@ class DriverController < ApplicationController
         end
     end
 
+    #create new driver
+    get '/drivers/new' do
+        @dispatcher = Dispatcher.find_by(id: session[:user_id])
+        @team = Team.find_by(id: @dispatcher.team_id)
+
+        erb :"drivers/new"
+    end
+
+    post '/drivers' do
+        # binding.pry
+        @driver = Driver.create(params[:driver])
+        redirect to "/drivers/#{@driver.id}"
+    end
+
     #show single driver route
     get '/drivers/:id' do
         @driver = Driver.find_by(id: params[:id])

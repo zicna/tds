@@ -8,8 +8,8 @@ teams.each do |team|
 end
 
 dispatchers = [
-    {name: "Clark", team_id: 1, username: "clark", email: "clark@fj.com", password: "fj_clark" },
-    {name: "Jason", team_id: 1, username: "jason", email: "jason@fj.com",password: "fj_jason" },
+    {name: "Clark", team_id: 1, username: "clark", email: "clark@fj.com", password: "fj_clark"},
+    {name: "Jason", team_id: 1, username: "jason", email: "jason@fj.com",password: "fj_jason"},
     {name: "Milo", team_id: 1, username: "milo", email: "milo@fj.com",password: "fj_milo"},
     {name: "Marko", team_id: 1, username: "marko", email: "marko@fj.com",password: "fj_marko"},
     {name: "Pavle", team_id: 2, username: "pavle", email: "pavle@fj.com",password: "fj_pavle"},

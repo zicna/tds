@@ -1,0 +1,18 @@
+<h2>New driver:</h2>
+<div class="form-new">
+    <form action="/drivers" method="post">
+        <label for="name">Driver name: </label><br>
+        <input type="text" id="name" name="driver[name]" autofocus>
+        <br><br>
+        <label for="truck">Truck number: </label><br>
+        <input type="number" id="truck" name="driver[truck]">
+        <br><br>
+        <label for="trailer">Trailer number: </label><br>
+        <input type="text" id="name" name="driver[trailer]">
+        <br><br>
+        <input type="hidden" id="team_id" name="driver[team_id]" value="<%=@team.id%>">
+        <br><br>
+        <input type="submit" value="Create new driver">
+
+    </form>
+</div>
