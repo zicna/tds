@@ -42,9 +42,13 @@ class DispatcherController < ApplicationController
 
     #edit
     get '/dispatchers/:id/edit' do
-        @dispatcher = Dispatcher.all.find_by(id: params[:id])
+        if current_user.id == params[:id].to_i
+            @dispatcher = Dispatcher.all.find_by(id: params[:id])
 
-        erb :"dispatchers/edit"
+            erb :"dispatchers/edit"
+        else
+            erb :"dispatchers/error_access_denied" 
+        end
     end
 
     patch '/dispatchers/:id' do 
@@ -56,10 +60,14 @@ class DispatcherController < ApplicationController
 
     #delete
     get '/dispatchers/:id/delete' do
-        @dispatcher = Dispatcher.all.find_by(id: params[:id])
-        @dispatcher.delete
+        if current_user.id == params[:id].to_i
+            @dispatcher = Dispatcher.all.find_by(id: params[:id])
+            @dispatcher.delete
 
-        redirect to "dispatchers/#{@dispatcher.id}"
+            redirect to "dispatchers/#{@dispatcher.id}"
+        else
+            erb :"dispatchers/error_access_denied" 
+        end
     end
 
 
