@@ -7,12 +7,14 @@
 <div id="table-cnt">
     <table>
         <caption>Dispatcher: <%= @dispatcher.name %></caption>
+        <th>Load id</th>
         <th>Pickup</th>
         <th>Delivery</th>
         <th>Miles</th>
         <th>Amount</th><br>
         <% @loads.each do |load| %>
             <tr>
+                <td><a href="/loads/<%=load.id%>"><%= load.id %></a></td>
                 <td><%= load.pickup %></td>
                 <td><%= load.delivery %></td>
                 <td><%= load.miles %></td>

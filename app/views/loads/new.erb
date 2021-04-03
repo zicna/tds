@@ -17,7 +17,9 @@
         <br>
             <select name="load[driver_id]">
                 <%Driver.all.each do |driver|%>
+                        <%if driver[:team_id] == @team.id %>
                         <option id="driver" value="<%=driver.id%>"><%=driver.name%></option>
+                        <%end%>
                 <%end%>
             </select>
         <br><br>
