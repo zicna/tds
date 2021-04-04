@@ -1,5 +1,5 @@
 class Dispatcher <ActiveRecord::Base
-    belongs_to :dispatch_team
+    belongs_to :team
     has_many :loads
     has_many :drivers, :through => :loads
 

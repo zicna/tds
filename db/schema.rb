@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_214121) do
     t.integer "team_id"
   end
 
-  create_table "join_dispatch_driver", force: :cascade do |t|
+  create_table "join_dispatch_drivers", force: :cascade do |t|
     t.integer "dispatcher_id"
     t.integer "driver_id"
   end

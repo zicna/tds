@@ -1,4 +1,4 @@
-class CreateDispatcher < ActiveRecord::Migration[6.1]
+class CreateDispatchers < ActiveRecord::Migration[6.1]
   def change
     create_table :dispatchers do |t|
       t.string :name
