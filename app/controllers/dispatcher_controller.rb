@@ -25,7 +25,7 @@ class DispatcherController < ApplicationController
     #receiving from singup form and creating new dispatcher
     post '/dispatchers' do
         
-        # binding.pry
+        #  binding.pry
         if !params[:team][:name].empty?
             @team = Team.create(params[:team])
             @dispatcher = Dispatcher.create(
@@ -35,11 +35,14 @@ class DispatcherController < ApplicationController
                 email: params[:dispatcher][:email],
                 username: params[:dispatcher][:username],
             )
+            session[:user_id] = @dispatcher.id
+            redirect to "/dispatchers/#{@dispatcher.id}"
         else
             @dispatcher = Dispatcher.create(params[:dispatcher])
+            session[:user_id] = @dispatcher.id
+            redirect to "/dispatchers/#{@dispatcher.id}"
         end
-        session[:user_id] = @dispatcher.id
-        redirect to "/dispatchers/#{@dispatcher.id}"
+        
     end
 
     #show page for single dispatcher

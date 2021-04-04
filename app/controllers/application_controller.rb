@@ -58,8 +58,6 @@ class ApplicationController < Sinatra::Base
       Dispatcher.find_by(id: session[:user_id])
     end
   end
-
-
-
+  
 end
   

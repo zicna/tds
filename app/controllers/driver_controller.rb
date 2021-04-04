@@ -20,8 +20,8 @@ class DriverController < ApplicationController
     end
 
     post '/drivers' do
-        # binding.pry
         @driver = Driver.create(params[:driver])
+        
         redirect to "/drivers/#{@driver.id}"
     end
 

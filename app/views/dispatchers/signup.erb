@@ -9,16 +9,18 @@
         <br>
         <input type="text" id="email" name="dispatcher[email]" placeholder="example@tds.com" required>
         <br><br>
-        <label for="team">Please select your team:</label>
-        <br>
-        <% Team.all.each do |t| %>
-                <input type="radio" name="dispatcher[team_id]" value="<%=t.id%>" id="<%=t.id%>" >
-                <label for="<%=t.id%>"><%= t.name %></label><br>
-            <% end %>
+        <%if Team.all%>
+            <label for="team">Please select your team:</label>
+            <br>
+            <% Team.all.each do |t| %>
+                    <input type="radio" name="dispatcher[team_id]" value="<%=t.id%>" id="<%=t.id%>" >
+                    <label for="<%=t.id%>"><%= t.name %></label><br>
+                <% end %>
+        <%end%>
         <br>
         <p>or create new team</p>
         <label for="new_team">New team name: </label><br>
-        <input type="text" id="new_team" name="team[name]" required>
+        <input type="text" id="new_team" name="team[name]">
         <br><br><br>
         <label for="username">Username: </label>
         <br>
