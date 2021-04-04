@@ -16,30 +16,32 @@
   <body>
     <div class="main-header">
       <%if logged_in?%>
-        <h4> Signed is as: <a href="/dispatchers/<%=current_user.id%>"><%= current_user.name %></a></h4>
-        
-        <div>
-          <a class="button" id="btn-teams"href="/teams">teams</a>
-        </div>
-        <div>
-          <a class="button" id="btn-loads"href="/loads">loads</a>
-        </div>
-        <div>
-          <a class="button" id="btn-dispatchers" href="/dispatchers">dispatchers</a>
-        </div>
-        <div>
-          <a class="button" id="btn-drivers" href="/drivers">drivers</a>
-        </div>
-        <div>
-          <a class="button" id="btn-logout" href="/logout">login out</a>
-        </div>
+          <h4> Signed is as: <a href="/dispatchers/<%=current_user.id%>"><%= current_user.name %></a></h4>
+
+          <div>
+            <a class="button" id="btn-teams"href="/teams">teams</a>
+          </div>
+
+          <div>
+            <a class="button" id="btn-dispatchers" href="/dispatchers">dispatchers</a>
+          </div>
+          <div>
+            <a class="button" id="btn-drivers" href="/drivers">drivers</a>
+          </div>
+          <div>
+            <a class="button" id="btn-loads"href="/loads">loads</a>
+          </div>
+          <div>
+            <a class="button" id="btn-logout" href="/logout">login out</a>
+          </div>
       <%else%>
-        <div>
-          <a class="button" id="btn-home"href="/">home</a>
-        </div>
-        <div>
-          <a class="button" id="btn-login" href="/login">log in</a>
-        </div>
+          <div>
+            <a class="button" id="btn-home"href="/">home</a>
+          </div>
+          
+          <div>
+            <a class="button" id="btn-login" href="/login">log in</a>
+          </div>
       <%end%>
     </div>
     <div class="wrapper">

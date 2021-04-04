@@ -42,6 +42,14 @@ class DispatcherController < ApplicationController
         
     end
 
+    # #new dispatcher
+    # get '/dispatchers/new' do
+
+    #     erb :"/dispatchers/new"
+    # end
+
+    # post 
+
     #show page for single dispatcher
     get '/dispatchers/:id' do 
         @dispatcher = Dispatcher.find_by_id(params[:id])
@@ -70,7 +78,7 @@ class DispatcherController < ApplicationController
     end
 
     #delete
-    #this needs to be fixed
+    #this needs to be fixt
     get '/dispatchers/:id/delete' do
         if current_user.id == params[:id].to_i
             @dispatcher = Dispatcher.all.find_by(id: params[:id])
