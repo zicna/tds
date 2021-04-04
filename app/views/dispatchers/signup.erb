@@ -7,7 +7,7 @@
         <br><br>
         <label for="email" >Email:</label>
         <br>
-        <input type="text" id="email" name=dispatcher[email] placeholder="example@tds.com">
+        <input type="text" id="email" name="dispatcher[email]" placeholder="example@tds.com">
         <br><br>
         <label for="team">Please select your team:</label>
         <br>
@@ -15,7 +15,11 @@
                 <input type="radio" name="dispatcher[team_id]" value="<%=t.id%>" id="<%=t.id%>">
                 <label for="<%=t.id%>"><%= t.name %></label><br>
             <% end %>
-        <br><br>
+        <br>
+        <p>or create new team</p>
+        <label for="new_team">New team name: </label><br>
+        <input type="text" id="new_team" name="team[name]">
+        <br><br><br>
         <label for="username">Username: </label>
         <br>
         <input type="text" id="username" name="dispatcher[username]">
@@ -24,6 +28,7 @@
         <br>
         <input type="password" id="password" name="dispatcher[password]" placeholder="************">
         <br><br>
+        
         <input type="submit" value="Create new dispatcher">
     </form>
 </div>
