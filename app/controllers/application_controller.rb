@@ -1,8 +1,6 @@
 require './config/environment'
-# require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
-  # use Rack::Flash
 
   configure do
     set :public_folder, 'public'
@@ -16,13 +14,12 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
 
-    erb :"/home/index"
+    erb :"/index"
   end
 
   #login route (render login form)
   get '/login' do
     if logged_in?
-      #binding.pry
       erb :"dispatchers/error_already_login"
     else 
       erb :"dispatchers/login"
@@ -58,6 +55,6 @@ class ApplicationController < Sinatra::Base
       Dispatcher.find_by(id: session[:user_id])
     end
   end
-  
+
 end
   

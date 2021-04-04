@@ -32,7 +32,7 @@ class LoadController < ApplicationController
         erb :"/loads/show"
     end
 
-    #update
+    #update/edit
     get '/loads/:id/edit' do
         @load = Load.find_by(id: params[:id])
         
@@ -53,6 +53,7 @@ class LoadController < ApplicationController
     end
 
     #delete
+    #needs more work 
     get '/loads/:id/delete' do 
         @load = Load.find_by(id: params[:id])
         if current_user && @load.dispatcher_id == session[:user_id]

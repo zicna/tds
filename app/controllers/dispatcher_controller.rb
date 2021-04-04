@@ -1,7 +1,5 @@
-# require 'rake-flash'
 
 class DispatcherController < ApplicationController
-    # use Rack::Flash
 
     #show all dispatchers route
     get '/dispatchers' do
@@ -25,7 +23,6 @@ class DispatcherController < ApplicationController
     #receiving from singup form and creating new dispatcher
     post '/dispatchers' do
         
-        #  binding.pry
         if !params[:team][:name].empty?
             @team = Team.create(params[:team])
             @dispatcher = Dispatcher.create(
@@ -47,9 +44,7 @@ class DispatcherController < ApplicationController
 
     #show page for single dispatcher
     get '/dispatchers/:id' do 
-        # binding.pry
         @dispatcher = Dispatcher.find_by_id(params[:id])
-        # session[:user_id] = @dispatcher.id
         @team = Team.find_by(id: @dispatcher.team_id)
         @loads = @dispatcher.loads
 
@@ -75,6 +70,7 @@ class DispatcherController < ApplicationController
     end
 
     #delete
+    #this needs to be fixed
     get '/dispatchers/:id/delete' do
         if current_user.id == params[:id].to_i
             @dispatcher = Dispatcher.all.find_by(id: params[:id])
@@ -85,7 +81,5 @@ class DispatcherController < ApplicationController
             erb :"dispatchers/error_access_denied" 
         end
     end
-
-
 
 end
