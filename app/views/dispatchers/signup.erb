@@ -3,30 +3,30 @@
     <form action="/dispatchers" method="post">
         <label for="name">Name: </label>
         <br>
-        <input type="text" id="name" name="dispatcher[name]" autofocus>
+        <input type="text" id="name" name="dispatcher[name]" autofocus required>
         <br><br>
         <label for="email" >Email:</label>
         <br>
-        <input type="text" id="email" name="dispatcher[email]" placeholder="example@tds.com">
+        <input type="text" id="email" name="dispatcher[email]" placeholder="example@tds.com" required>
         <br><br>
         <label for="team">Please select your team:</label>
         <br>
         <% Team.all.each do |t| %>
-                <input type="radio" name="dispatcher[team_id]" value="<%=t.id%>" id="<%=t.id%>">
+                <input type="radio" name="dispatcher[team_id]" value="<%=t.id%>" id="<%=t.id%>" >
                 <label for="<%=t.id%>"><%= t.name %></label><br>
             <% end %>
         <br>
         <p>or create new team</p>
         <label for="new_team">New team name: </label><br>
-        <input type="text" id="new_team" name="team[name]">
+        <input type="text" id="new_team" name="team[name]" required>
         <br><br><br>
         <label for="username">Username: </label>
         <br>
-        <input type="text" id="username" name="dispatcher[username]">
+        <input type="text" id="username" name="dispatcher[username]" required>
         <br><br>
         <label for="password">Password: </label>
         <br>
-        <input type="password" id="password" name="dispatcher[password]" placeholder="************">
+        <input type="password" id="password" name="dispatcher[password]" placeholder="************" required>
         <br><br>
         
         <input type="submit" value="Create new dispatcher">

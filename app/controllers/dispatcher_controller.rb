@@ -38,7 +38,7 @@ class DispatcherController < ApplicationController
         else
             @dispatcher = Dispatcher.create(params[:dispatcher])
         end
-        binding.pry
+        session[:user_id] = @dispatcher.id
         redirect to "/dispatchers/#{@dispatcher.id}"
     end
 
