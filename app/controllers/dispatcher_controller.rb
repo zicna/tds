@@ -33,6 +33,7 @@ class DispatcherController < ApplicationController
                 username: params[:dispatcher][:username],
             )
             session[:user_id] = @dispatcher.id
+            binding.pry
             redirect to "/dispatchers/#{@dispatcher.id}"
         else
             @dispatcher = Dispatcher.create(params[:dispatcher])
