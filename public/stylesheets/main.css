@@ -127,8 +127,19 @@
 #main-header {
   display: inline;
 } */
-footer {
+/* footer {
   margin-top: auto;
 }
 
+.footer {
+
+} */
+li {
+  display: inline-block;
+}
+.media ul li {
+  display: inline;
+  margin-left:  50%;
+
+}
 
