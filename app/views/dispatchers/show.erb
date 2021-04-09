@@ -1,5 +1,10 @@
 
-<h2><%= @team.name %> team</h2>
+<%if @team%>
+    <h2><%= @team.name %></h2>
+<%else%>
+    <h2>"Not assigned to any team"</h2>
+<%end%>
+
 <p>Dispatcher Name: <b><%= @dispatcher.name %></b></p>
 <p>Username: <b><%= @dispatcher.username %></b></p>
 <p>Email: <b><%= @dispatcher.email %></b></p>
@@ -28,7 +33,7 @@
         <a class="button" href="/dispatchers/<%=@dispatcher.id%>/edit">Edit dispatcher</a>
 </div>
 <div id="btn-delete">
-        <a class="button" href="/dispatchers/<%=@dispatcher.id%>/delete">Delete dispatcher</a>
+        <a class="button" href="/dispatchers/<%=@dispatcher.id%>/delete">Deactivate account</a>
 </div>
 
 

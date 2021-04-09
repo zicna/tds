@@ -12,41 +12,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script src="https://kit.fontawesome.com/e6e834d06c.js" crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="/stylesheets/main.css" />
+
   </head>
   <body>
-    <div class="main-header">
+    
+    <div class="wrapper">
+    <div id="nav-bar">
       <%if logged_in?%>
-          <h4> Signed is as: <a href="/dispatchers/<%=current_user.id%>"><%= current_user.name %></a></h4>
-
-          <div>
-            <a class="button" id="btn-teams"href="/teams">teams</a>
-          </div>
-
-          <div>
-            <a class="button" id="btn-dispatchers" href="/dispatchers">dispatchers</a>
-          </div>
-          <div>
-            <a class="button" id="btn-drivers" href="/drivers">drivers</a>
-          </div>
-          <div>
-            <a class="button" id="btn-loads"href="/loads">loads</a>
-          </div>
-          <div>
-            <a class="button" id="btn-logout" href="/logout">login out</a>
-          </div>
+        <h4> Signed is as: <a href="/dispatchers/<%=current_user.id%>"><%= current_user.name %></a></h4>
+          <a class="button" id="btn-teams"href="/teams">teams</a>
+        
+          <a class="button" id="btn-dispatchers" href="/dispatchers">dispatchers</a>
+        
+          <a class="button" id="btn-drivers" href="/drivers">drivers</a>
+        
+          <a class="button" id="btn-loads"href="/loads">loads</a>
+        
+          <a class="button" id="btn-logout" href="/logout">log out</a>
+        
       <%else%>
-          <div>
-            <a class="button" id="btn-home"href="/">home</a>
-          </div>
-          
-          <div>
-            <a class="button" id="btn-login" href="/login">log in</a>
-          </div>
+        
+          <a class="button" id="btn-home"href="/">home</a>
+        
+          <a class="button" id="btn-login" href="/login">log in</a>
+        
       <%end%>
     </div>
-    <div class="wrapper">
 
         <%= yield %>
 

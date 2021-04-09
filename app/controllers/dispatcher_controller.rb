@@ -33,7 +33,7 @@ class DispatcherController < ApplicationController
                 username: params[:dispatcher][:username],
             )
             session[:user_id] = @dispatcher.id
-            binding.pry
+            # binding.pry
             redirect to "/dispatchers/#{@dispatcher.id}"
         else
             @dispatcher = Dispatcher.create(params[:dispatcher])
@@ -81,11 +81,12 @@ class DispatcherController < ApplicationController
     #delete
     #this needs to be fixt
     get '/dispatchers/:id/delete' do
+        # binding.pry
         if current_user.id == params[:id].to_i
-            @dispatcher = Dispatcher.all.find_by(id: params[:id])
+            @dispatcher = Dispatcher.find_by(id: params[:id])
             @dispatcher.delete
-
-            redirect to "dispatchers/#{@dispatcher.id}"
+            session.clear
+            redirect to "/"
         else
             erb :"dispatchers/error_access_denied" 
         end

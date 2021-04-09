@@ -10,7 +10,11 @@
             <tr>
                 <td><%= driver.id %></td>
                 <td><a href="/drivers/<%=driver.id%>"><%= driver.name %></a></td>
-                <td><a href="/teams/<%=driver.team_id%>"><%= Team.all.find_by(id: driver.team_id).name %></a></td>
+                <%if Team.find_by(id: driver.team_id)%>
+                    <td><%=Team.find_by(id: driver.team_id).name%></td>
+                <%else%>
+                    <td>"no team"</td>
+                <%end%>
             </tr>
             <%end%>
     </table>
