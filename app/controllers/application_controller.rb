@@ -1,12 +1,13 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
+  
 
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions unless test?
-    set :session_secret, "secret"
+    set :session_secret, "password_security"
   end
     
 
@@ -28,7 +29,7 @@ class ApplicationController < Sinatra::Base
   post '/login' do
     @dispatcher = Dispatcher.find_by(username: params[:dispatcher][:username])
 
-    if @dispatcher && @dispatcher.password == params[:dispatcher][:password]
+    if @dispatcher && @dispatcher.authenticate(params[:dispatcher][:password])
       session[:user_id] = @dispatcher.id
 
       redirect to "/dispatchers/#{@dispatcher.id}"

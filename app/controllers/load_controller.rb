@@ -13,7 +13,9 @@ class LoadController < ApplicationController
     #render form for creating new load
     get '/loads/new' do
         @dispatcher = Dispatcher.find_by(id: session[:user_id])
-        @team = Team.find_by(id: @dispatcher[:team_id])
+        if @dispatcher
+            @team = Team.find_by(id: @dispatcher[:team_id])
+        end
 
         erb :"loads/new"
     end

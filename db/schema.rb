@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_214121) do
+ActiveRecord::Schema.define(version: 2021_04_09_214002) do
 
   create_table "dispatchers", force: :cascade do |t|
     t.string "name"
     t.integer "team_id"
-    t.string "password"
     t.string "email"
     t.string "username"
+    t.string "password_digest"
   end
 
   create_table "drivers", force: :cascade do |t|

@@ -9,11 +9,11 @@
 <p><b>Driver: </b> <%= @load.driver.name %></p>
 <p><b>Notes: </b> <%= @load.notes %></p>
 
-
-
-<div id="btn-edit">
-        <a class="button" href="/loads/<%=@load.id%>/edit">Edit load</a>
-</div>
-<div id="btn-delete">
-        <a class="button" href="/loads/<%=@load.id%>/delete">Delete load</a>
-</div>
+<%if @load.dispatcher.id == session[:user_id]%>
+        <div id="btn-edit">
+                <a class="button" href="/loads/<%=@load.id%>/edit">Edit load</a>
+        </div>
+        <div id="btn-delete">
+                <a class="button" href="/loads/<%=@load.id%>/delete">Delete load</a>
+        </div>
+<%end%>
